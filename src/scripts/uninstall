@@ -1,0 +1,24 @@
+#!/bin/bash
+#===============================================================================
+#
+#          FILE:  uninstall
+#
+#         USAGE:  ./uninstall
+#
+#   DESCRIPTION:  Unistalls the creamsn0w bundle.
+#
+#        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
+#       VERSION:  1.0.0
+#       CREATED:  2009-07-26 16:17:17-04:00
+#===============================================================================
+
+
+INSTALL_PATH="$( echo ~ )/Library/Application Support/PwnageTool/CustomPackages"
+BUNDLE_NAME=creamsn0w
+BUNDLE="${BUNDLE_NAME}.bundle"
+temp_ifs=$IFS
+IFS=$'\n'
+echo Uninstalling ${BUNDLE_NAME}.
+rm -rf ${INSTALL_PATH}/${BUNDLE}
+echo Done.
+IFS=$temp_ifs
