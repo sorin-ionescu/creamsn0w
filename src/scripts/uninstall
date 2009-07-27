@@ -8,8 +8,8 @@
 #   DESCRIPTION:  Unistalls the creamsn0w bundle.
 #
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.0
-#       CREATED:  2009-07-26 16:17:17-04:00
+#       VERSION:  1.0.1
+#       CREATED:  2009-07-27 14:48:39-04:00
 #===============================================================================
 
 
@@ -19,6 +19,20 @@ BUNDLE="${BUNDLE_NAME}.bundle"
 temp_ifs=$IFS
 IFS=$'\n'
 echo Uninstalling ${BUNDLE_NAME}.
+
+# redsn0w hack
+redsn0w_path=$( mdfind 'redsn0w' | grep '\.app$' )
+if [[ -n $redsn0w_path  ]]
+then
+	icy_path=$redsn0w_path/Contents/MacOS
+	if [[ -e "${icy_path}/Icy.tar.gz.bak" ]]
+	then
+		cd $icy_path
+		mv -f Icy.tar.gz.bak Icy.tar.gz
+		cd $( dirname $0 )
+	fi
+fi
+
 rm -rf ${INSTALL_PATH}/${BUNDLE}
 echo Done.
 IFS=$temp_ifs

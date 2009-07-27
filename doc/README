@@ -37,7 +37,14 @@ it is jailbroken and unlocked from just looking at it.
 Just do not let them restore it. You will not lose your
 warranty.
 
-Updates will be posted at http://spookyet.wordpress.com
+NOTE: redsn0w support is a hack. The Cydia and Icy entries are
+hardcoded. In order to support CreamSn0w, Icy has to be
+replaced. The redsn0w still says, 'Icy', but it is not.
+It is CreamSn0w. This is done for iPhone 3GS users who need
+to unlock their iPhone and do not wish to wait for PwnageTool
+to be updated.
+
+Updates will be posted at http://spookyet.posterous.com
 
 --------------------------------------------------------------
 Creamsn0w Credits
@@ -55,10 +62,11 @@ mobilesubstrate - Saurik <http://www.saurik.com>
 System Requirements
 --------------------------------------------------------------
 1) Apple Mac OS X
-2) iPhone Dev Team PwnageTool
+2) iPhone Dev Team PwnageTool (preferred)
+3) iPhone Dev Team redsn0w (experimental hack)
 
 --------------------------------------------------------------
-Installation Instructions
+PwnageTool Installation Instructions
 --------------------------------------------------------------
 1) Unzip creamsn0w.zip
 2) Place iPhone carrier support IPCC files in addons.
@@ -67,6 +75,16 @@ Installation Instructions
 4) Launch PwnageTool.
 5) In 'Expert mode', under 'Custom packages' deselect 
    Cydia and Icy. Select 'creamsn0w'.
+
+--------------------------------------------------------------
+redsn0w Installation Instructions
+--------------------------------------------------------------
+1) Unzip creamsn0w.zip
+2) Place iPhone carrier support IPCC files in addons.
+   Simple extracted DEB in ZIP format are also supported.
+3) Double-click install.
+4) Launch redsn0w.
+5) Deselect Cydia. Select 'Icy'.
 
 --------------------------------------------------------------
 Uninstallation Instructions
