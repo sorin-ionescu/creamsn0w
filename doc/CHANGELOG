@@ -4,11 +4,18 @@ Changelog
 Read this file to see what is new in each version.
 
 --------------------------------------------------------------
+2009-07-27 v1.0.2
+--------------------------------------------------------------
+* Added DEB package support.
+* Changed installer to prevent __MACOSX directories from
+  zip packages from being added to the firmware.
+
+--------------------------------------------------------------
 2009-07-27 v1.0.1
 --------------------------------------------------------------
-Added redsn0w support.
+* Added redsn0w support.
 
 --------------------------------------------------------------
 2009-07-26 v1.0.0
 --------------------------------------------------------------
-Initial public release.
+* Initial public release.

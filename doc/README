@@ -70,7 +70,8 @@ PwnageTool Installation Instructions
 --------------------------------------------------------------
 1) Unzip creamsn0w.zip
 2) Place iPhone carrier support IPCC files in addons.
-   Simple extracted DEB in ZIP format are also supported.
+   Simple DEB packages (no scripts) and manually processed 
+   extracted DEB packages in ZIP format are also supported.
 3) Double-click install.
 4) Launch PwnageTool.
 5) In 'Expert mode', under 'Custom packages' deselect 
@@ -81,7 +82,8 @@ redsn0w Installation Instructions
 --------------------------------------------------------------
 1) Unzip creamsn0w.zip
 2) Place iPhone carrier support IPCC files in addons.
-   Simple extracted DEB in ZIP format are also supported.
+   Simple DEB packages (no scripts) and manually processed 
+   extracted DEB packages in ZIP format are also supported.
 3) Double-click install.
 4) Launch redsn0w.
 5) Deselect Cydia. Select 'Icy'.
