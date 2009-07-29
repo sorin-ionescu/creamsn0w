@@ -8,8 +8,8 @@
 #   DESCRIPTION:  Installs the creamsn0w bundle.
 #
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.1
-#       CREATED:  2009-07-27 14:47:29-04:00
+#       VERSION:  1.0.2
+#       CREATED:  2009-07-29 15:00:29-04:00
 #===============================================================================
 
 
@@ -33,11 +33,30 @@ then
 	for ipcc in addons/*.ipcc
 	do
 		ipcc_name=$( echo $ipcc | sed -e 's/addons\///g' )
+		dir_name=$( echo $ipcc_name | sed -e 's/\(.*\)\..*$/\1/g' )
 		echo "  Embedding ${ipcc_name}"
-		unzip -qq ${ipcc} -d $ipcc_name
+		unzip -qq ${ipcc} -d $dir_name
 		mkdir -p $CARRIER_SUPPORT_PATH
-		mv $ipcc_name/Payload/* $CARRIER_SUPPORT_PATH/
-		rm -rf $ipcc_name
+		ditto $dir_name/Payload/ $CARRIER_SUPPORT_PATH/
+		rm -rf $dir_name
+	done
+fi
+
+# Deb package.
+if [[  $( find addons -type f -name '*.deb' ) ]]
+then
+	for package in addons/*.deb
+	do
+		package_name=$( echo $package | sed -e 's/addons\///g' )
+		dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
+		echo "  Embedding ${package_name}"
+		mkdir -p $dir_name/Payload
+		cd $dir_name
+		ar x ../$package
+		tar xzf data.tar.gz -C Payload
+		cd ..
+		ditto $dir_name/Payload $BUNDLE_ROOT/
+		rm -rf $dir_name
 	done
 fi
 
@@ -47,10 +66,11 @@ then
 	for package in addons/*.zip
 	do
 		package_name=$( echo $package | sed -e 's/addons\///g' )
+		dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
 		echo "  Embedding ${package_name}"
-		unzip -qq $package -d $package_name
-		ditto $package_name $BUNDLE_ROOT
-		rm -rf $package_name
+		unzip -qq $package -d $dir_name
+		ditto $dir_name/ $BUNDLE_ROOT/
+		rm -rf $dir_name
 	done
 fi
 
@@ -60,8 +80,9 @@ size=$( du -bcs | awk '{ print $1 }' | tail -n 1 )
 PlistBuddy -c "Set :Size ${size}" Info.plist
 cd ..
 
-# Remove those pesky .DS_Store files.
+# Remove those pesky .DS_Store files and __MACOSX directories.
 find . -type f -name '.DS_Store' -delete
+find . -type d -name '__MACOSX' -exec rm -rf "{}" \; &> /dev/null
 
 # redsn0w hack
 redsn0w_path=$( mdfind 'redsn0w' | grep '\.app$' )
