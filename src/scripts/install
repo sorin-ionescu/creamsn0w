@@ -76,7 +76,7 @@ fi
 
 # Update bundle size.
 cd $BUNDLE
-size=$( du -bcs | awk '{ print $1 }' | tail -n 1 )
+size=$( echo "$( du -kcs | tail -n 1 | awk '{ print $1 }' ) * 1024" | bc -l )
 PlistBuddy -c "Set :Size ${size}" Info.plist
 cd ..
 
