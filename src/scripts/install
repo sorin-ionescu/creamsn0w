@@ -27,67 +27,46 @@ unzip -qq $BUNDLE
 
 echo Building ${BUNDLE_NAME}.
 
-# iPhone Carrier Support files.
-if [[  $( find addons -type f -name '*.ipcc' ) ]]
-then
-	for ipcc in addons/*.ipcc
-	do
-		ipcc_name=$( echo $ipcc | sed -e 's/addons\///g' )
-		dir_name=$( echo $ipcc_name | sed -e 's/\(.*\)\..*$/\1/g' )
-		echo "  Embedding ${ipcc_name}"
-		unzip -qq ${ipcc} -d $dir_name
-		mkdir -p $CARRIER_SUPPORT_PATH
-		ditto $dir_name/Payload/ $CARRIER_SUPPORT_PATH/
-		rm -rf $dir_name
-	done
-fi
-
-# Deb package.
-if [[  $( find addons -type f -name '*.deb' ) ]]
-then
-	for package in addons/*.deb
-	do
-		package_name=$( echo $package | sed -e 's/addons\///g' )
-		dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
-		echo "  Embedding ${package_name}"
-		mkdir -p $dir_name/Payload
-		cd $dir_name
-		ar x ../$package
-		tar xzf data.tar.gz -C Payload
-		cd ..
-		ditto $dir_name/Payload $BUNDLE_ROOT/
-		rm -rf $dir_name
-	done
-fi
-
-# Extracted deb package in zip format.
-if [[  $( find addons -type f -name '*.zip' ) ]]
-then
-	for package in addons/*.zip
-	do
-		package_name=$( echo $package | sed -e 's/addons\///g' )
-		dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
-		echo "  Embedding ${package_name}"
-		unzip -qq $package -d $dir_name
-		ditto $dir_name/ $BUNDLE_ROOT/
-		rm -rf $dir_name
-	done
-fi
-
-# Extracted deb package in tar.gz format.
-if [[  $( find addons -type f -name '*.tar.gz' ) ]]
-then
-	for package in addons/*.tar.gz addons/*.tgz
-	do
-		package_name=$( echo $package | sed -e 's/addons\///g' )
-		dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
-		echo "  Embedding ${package_name}"
-		mkdir $dir_name
-		tar xzf $package -C $dir_name
-		ditto $dir_name/ $BUNDLE_ROOT/
-		rm -rf $dir_name
-	done
-fi
+for package in $( find addons -type f )
+do
+	case $package in
+		*.ipcc)
+			package_name=$( echo $package | sed -e 's/addons\///g' )
+			dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
+			echo "  Embedding ${package_name}"
+			unzip -qq ${package} -d $dir_name
+			mkdir -p $CARRIER_SUPPORT_PATH
+			ditto $dir_name/Payload/ $CARRIER_SUPPORT_PATH/
+			;;
+		*.deb)
+			package_name=$( echo $package | sed -e 's/addons\///g' )
+			dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
+			echo "  Embedding ${package_name}"
+			mkdir -p $dir_name/Payload
+			cd $dir_name
+			ar x ../$package
+			tar xzf data.tar.gz -C Payload
+			cd ..
+			ditto $dir_name/Payload $BUNDLE_ROOT/
+			;;
+		*.zip)
+			package_name=$( echo $package | sed -e 's/addons\///g' )
+			dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
+			echo "  Embedding ${package_name}"
+			unzip -qq $package -d $dir_name
+			ditto $dir_name/ $BUNDLE_ROOT/
+			;;
+		*.tar.gz|*.tgz)
+			package_name=$( echo $package | sed -e 's/addons\///g' )
+			dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
+			echo "  Embedding ${package_name}"
+			mkdir $dir_name
+			tar xzf $package -C $dir_name
+			ditto $dir_name/ $BUNDLE_ROOT/
+		;;
+	esac
+	rm -rf $dir_name
+done
 
 # Update bundle size.
 cd $BUNDLE
