@@ -60,7 +60,7 @@ then
 	done
 fi
 
-# Extracted deb package.
+# Extracted deb package in zip format.
 if [[  $( find addons -type f -name '*.zip' ) ]]
 then
 	for package in addons/*.zip
@@ -69,6 +69,21 @@ then
 		dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
 		echo "  Embedding ${package_name}"
 		unzip -qq $package -d $dir_name
+		ditto $dir_name/ $BUNDLE_ROOT/
+		rm -rf $dir_name
+	done
+fi
+
+# Extracted deb package in tar.gz format.
+if [[  $( find addons -type f -name '*.tar.gz' ) ]]
+then
+	for package in addons/*.tar.gz addons/*.tgz
+	do
+		package_name=$( echo $package | sed -e 's/addons\///g' )
+		dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
+		echo "  Embedding ${package_name}"
+		mkdir $dir_name
+		tar xzf $package -C $dir_name
 		ditto $dir_name/ $BUNDLE_ROOT/
 		rm -rf $dir_name
 	done
