@@ -11,8 +11,6 @@
 #       VERSION:  1.0.2
 #       CREATED:  2009-07-29 15:00:29-04:00
 #===============================================================================
-
-
 BUNDLE_NAME="creamsn0w"
 BUNDLE="${BUNDLE_NAME}.bundle"
 INSTALL_PATH="$( echo ~ )/Library/Application Support/PwnageTool/CustomPackages"
@@ -22,6 +20,9 @@ CARRIER_SUPPORT_PATH="${BUNDLE_ROOT}/System/Library/Carrier Bundles"
 temp_ifs=$IFS
 IFS=$'\n'
 cd $( dirname $0 )
+DIR_ROOT=$( pwd )
+AR="$DIR_ROOT/bin/ar"
+PLISTBUDDY="$DIR_ROOT/bin/PlistBuddy"
 
 unzip -qq $BUNDLE
 
@@ -44,7 +45,7 @@ do
 			echo "  Embedding ${package_name}"
 			mkdir -p $dir_name/Payload
 			cd $dir_name
-			ar x ../$package
+			$AR x ../$package
 			tar xzf data.tar.gz -C Payload
 			cd ..
 			ditto $dir_name/Payload $BUNDLE_ROOT/
@@ -71,7 +72,7 @@ done
 # Update bundle size.
 cd $BUNDLE
 size=$( echo "$( du -kcs | tail -n 1 | awk '{ print $1 }' ) * 1024" | bc -l )
-PlistBuddy -c "Set :Size ${size}" Info.plist
+$PLISTBUDDY -c "Set :Size ${size}" Info.plist
 cd ..
 
 # Remove those pesky .DS_Store files and __MACOSX directories.
@@ -88,9 +89,9 @@ then
 	cd ../..
 	if [[ ! -e "${icy_path}/Icy.tar.gz.bak" ]]
 	then
-		cd $icy_path
+		pushd $icy_path &> /dev/null
 		mv Icy.tar.gz Icy.tar.gz.bak
-		cd $( dirname $0 )
+		popd &> /dev/null
 	fi
 	mv -f Icy.tar.gz $icy_path
 fi

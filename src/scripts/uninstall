@@ -27,9 +27,9 @@ then
 	icy_path=$redsn0w_path/Contents/MacOS
 	if [[ -e "${icy_path}/Icy.tar.gz.bak" ]]
 	then
-		cd $icy_path
+		pushd $icy_path &> /dev/null
 		mv -f Icy.tar.gz.bak Icy.tar.gz
-		cd $( dirname $0 )
+		popd &> /dev/null
 	fi
 fi
 

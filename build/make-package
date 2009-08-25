@@ -8,8 +8,8 @@
 #   DESCRIPTION:  Makes creamsn0w package.
 #
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.0
-#       CREATED:  2009-07-26 16:18:54-04:00
+#       VERSION:  1.0.1
+#       CREATED:  2009-08-25 01:26:24-04:00
 #===============================================================================
 
 VERSION=`git tag | tail -n 1`
@@ -17,7 +17,7 @@ BUNDLE_NAME='creamsn0w'
 BUNDLE="${BUNDLE_NAME}.bundle"
 PACKAGE_NAME="${BUNDLE_NAME}_${VERSION}"
 PACKAGE="${PACKAGE_NAME}.zip"
-SRC="../src/"
+SRC="../src"
 
 cd $( dirname $0 )
 
@@ -27,9 +27,10 @@ mkdir -p tmp/$BUNDLE
 mkdir -p tmp/addons
 
 cp $SRC/Info.plist tmp/$BUNDLE/
-cp -r $SRC/files  tmp/$BUNDLE/
+cp -R $SRC/files  tmp/$BUNDLE/
 cp $SRC/scripts/* tmp
 cp ../doc/* tmp
+cp -R $SRC/bin tmp/
 
 cd tmp
 find . -type f -name '.DS_Store' -delete;
