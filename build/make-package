@@ -5,21 +5,24 @@
 #
 #         USAGE:  ./make-package
 #
-#   DESCRIPTION:  Makes creamsn0w package.
+#   DESCRIPTION:  Makes the creamsn0w package.
 #
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.1
-#       CREATED:  2009-08-25 01:26:24-04:00
+#       VERSION:  1.0.2
+#       CREATED:  2009-09-15 20:15:44-04:00
 #===============================================================================
-
+cd $( dirname $0 ); cd ..
 VERSION=`git tag | tail -n 1`
 BUNDLE_NAME='creamsn0w'
 BUNDLE="${BUNDLE_NAME}.bundle"
 PACKAGE_NAME="${BUNDLE_NAME}_${VERSION}"
 PACKAGE="${PACKAGE_NAME}.zip"
-SRC="../src"
+DIR_ROOT=$( pwd )
+SRC="$DIR_ROOT/src"
+DOC="$DIR_ROOT/doc"
+PLISTBUDDY="$DIR_ROOT/src/bin/PlistBuddy"
 
-cd $( dirname $0 )
+cd build
 
 # Start clean.
 rm -rf *.zip 
@@ -29,12 +32,13 @@ mkdir -p tmp/addons
 cp $SRC/Info.plist tmp/$BUNDLE/
 cp -R $SRC/files  tmp/$BUNDLE/
 cp $SRC/scripts/* tmp
-cp ../doc/* tmp
+cp $DOC/* tmp
 cp -R $SRC/bin tmp/
 
 cd tmp
 find . -type f -name '.DS_Store' -delete;
-
+$PLISTBUDDY -c "Add :GetInfoString string '${VERSION}, Copyright 2009 Sorin Ionescu (SpookyET).'" $BUNDLE/Info.plist
+$PLISTBUDDY -c "Add :ShortVersionString string ${VERSION}" $BUNDLE/Info.plist
 zip -qq -r -y $BUNDLE.zip $BUNDLE
 rm -rf $BUNDLE
 echo "Making package $PACKAGE."

@@ -7,9 +7,9 @@
 #
 #   DESCRIPTION:  Installs the creamsn0w bundle.
 #
-#        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.2
-#       CREATED:  2009-07-29 15:00:29-04:00
+#        AUTHOR:  Sorin Ionescu (SookyET) <sorin.ionescu@gmail.com>
+#       VERSION:  1.0.3
+#       CREATED:  2009-09-15 20:56:21-04:00
 #===============================================================================
 BUNDLE_NAME="creamsn0w"
 BUNDLE="${BUNDLE_NAME}.bundle"
@@ -72,29 +72,12 @@ done
 # Update bundle size.
 cd $BUNDLE
 size=$( echo "$( du -kcs | tail -n 1 | awk '{ print $1 }' ) * 1024" | bc -l )
-$PLISTBUDDY -c "Set :Size ${size}" Info.plist
+$PLISTBUDDY -c "Add :Size integer ${size}" Info.plist
 cd ..
 
 # Remove those pesky .DS_Store files and __MACOSX directories.
 find . -type f -name '.DS_Store' -delete
 find . -type d -name '__MACOSX' -exec rm -rf "{}" \; &> /dev/null
-
-# redsn0w hack
-redsn0w_path=$( mdfind 'redsn0w' | grep '\.app$' )
-if [[ -n $redsn0w_path  ]]
-then
-	icy_path=$redsn0w_path/Contents/MacOS
-	cd $BUNDLE/files
-	tar czvf ../../Icy.tar.gz * &> /dev/null
-	cd ../..
-	if [[ ! -e "${icy_path}/Icy.tar.gz.bak" ]]
-	then
-		pushd $icy_path &> /dev/null
-		mv Icy.tar.gz Icy.tar.gz.bak
-		popd &> /dev/null
-	fi
-	mv -f Icy.tar.gz $icy_path
-fi
 
 echo "Installing $BUNDLE_NAME."
 mkdir -p $INSTALL_PATH

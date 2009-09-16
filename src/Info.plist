@@ -5,21 +5,18 @@
 	<key>Commands</key>
 	<array/>
 	<key>Description</key>
-	<string>iPhone OS 3.0 custom firmware unlock with embedded ultrasn0w.</string>
-	<key>GetInfoString</key>
-	<string>1.0.0, Copyright 2009 SpookyET.</string>
+	<string>iPhone 3G/3GS custom firmware unlock with embedded ultrasn0w.</string>
 	<key>Identifier</key>
 	<string>com.spookyet.creamsn0w</string>
 	<key>Name</key>
 	<string>creamsn0w</string>
-	<key>ShortVersionString</key>
-	<string>1.0.0</string>
-	<key>Size</key>
-	<integer>0</integer>
 	<key>SupportedFirmware</key>
 	<array>
 		<string>iPhone1,2_3.0_7A341</string>
 		<string>iPhone2,1_3.0_7A341</string>
+		<string>iPhone1,1_3.1_7C144</string>
+		<string>iPhone1,2_3.1_7C144</string>
+		<string>iPod1,1_3.1.1_7C145</string>
 	</array>
 </dict>
 </plist>
