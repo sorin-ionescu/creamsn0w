@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -12,11 +13,18 @@
 	<string>creamsn0w</string>
 	<key>SupportedFirmware</key>
 	<array>
+		<string>iPhone1,1_3.0_7A341</string>
 		<string>iPhone1,2_3.0_7A341</string>
 		<string>iPhone2,1_3.0_7A341</string>
+		<string>iPhone1,1_3.0.1_7A400</string>
+		<string>iPhone1,2_3.0.1_7A400</string>
+		<string>iPhone2,1_3.0.1_7A400</string>
 		<string>iPhone1,1_3.1_7C144</string>
 		<string>iPhone1,2_3.1_7C144</string>
-		<string>iPod1,1_3.1.1_7C145</string>
+		<string>iPhone2,1_3.1_7C144</string>
+		<string>iPhone1,1_3.1.2_7D11</string>
+		<string>iPhone1,2_3.1.2_7D11</string>
+		<string>iPhone2,1_3.1.2_7D11</string>
 	</array>
 </dict>
 </plist>
