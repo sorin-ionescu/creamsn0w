@@ -110,6 +110,22 @@
 			<key>Action</key>
 			<string>SetOwner</string>
 			<key>File</key>
+			<string>System/Library/LaunchDaemons/com.apple.AOSNotification.plist</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>System/Library/LaunchDaemons/com.apple.AOSNotification.plist</string>
+			<key>Permission</key>
+			<string>644</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
 			<string>System/Library/LaunchDaemons/com.apple.CommCenter.plist</string>
 			<key>Owner</key>
 			<string>root:wheel</string>
@@ -126,7 +142,7 @@
 			<key>Action</key>
 			<string>SetOwner</string>
 			<key>File</key>
-			<string>System/Library/LaunchDaemons/com.apple.SpringBoard.plist</string>
+			<string>System/Library/LaunchDaemons/com.apple.itunesstored.plist</string>
 			<key>Owner</key>
 			<string>root:wheel</string>
 		</dict>
@@ -134,7 +150,7 @@
 			<key>Action</key>
 			<string>SetPermission</string>
 			<key>File</key>
-			<string>System/Library/LaunchDaemons/com.apple.SpringBoard.plist</string>
+			<string>System/Library/LaunchDaemons/com.apple.itunesstored.plist</string>
 			<key>Permission</key>
 			<string>644</string>
 		</dict>
@@ -142,7 +158,7 @@
 			<key>Action</key>
 			<string>SetOwner</string>
 			<key>File</key>
-			<string>System/Library/LaunchDaemons/com.apple.itunesstored.plist</string>
+			<string>System/Library/LaunchDaemons/com.apple.mediaserverd.plist</string>
 			<key>Owner</key>
 			<string>root:wheel</string>
 		</dict>
@@ -150,7 +166,23 @@
 			<key>Action</key>
 			<string>SetPermission</string>
 			<key>File</key>
-			<string>System/Library/LaunchDaemons/com.apple.itunesstored.plist</string>
+			<string>System/Library/LaunchDaemons/com.apple.mediaserverd.plist</string>
+			<key>Permission</key>
+			<string>644</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>System/Library/LaunchDaemons/com.apple.SpringBoard.plist</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>System/Library/LaunchDaemons/com.apple.SpringBoard.plist</string>
 			<key>Permission</key>
 			<string>644</string>
 		</dict>

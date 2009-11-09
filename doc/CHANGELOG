@@ -4,6 +4,12 @@ Changelog
 Read this file to see what is new in each version.
 
 ---------------------------------------------------------------
+2009-11-09 v1.0.9
+--------------------------------------------------------------
+* Upgraded ultrasn0w to version 0.92.
+* Upgraded Mobile Substrate to version 0.9.3072.
+
+---------------------------------------------------------------
 2009-10-21 v1.0.8
 --------------------------------------------------------------
 * Added file ownership and permissions settings.

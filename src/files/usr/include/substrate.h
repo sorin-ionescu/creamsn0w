@@ -16,10 +16,14 @@ extern "C" {
 
 #include <dlfcn.h>
 
+#ifdef __APPLE__
+#include <CoreFoundation/CoreFoundation.h>
+#endif
+
 #define _finline \
-    inline __attribute__((always_inline))
+    inline __attribute__((__always_inline__))
 #define _disused \
-    __attribute__((unused))
+    __attribute__((__unused__))
 
 #ifdef __cplusplus
 #define _default(value) = value
@@ -225,17 +229,17 @@ class _H {
 
     _finline void Retain_() {
         if (value_ != nil)
-            [value_ retain];
+            CFRetain((CFTypeRef) value_);
     }
 
     _finline void Clear_() {
         if (value_ != nil)
-            [value_ release];
+            CFRelease((CFTypeRef) value_);
     }
 
   public:
     _finline _H(const This_ &rhs) :
-        value_(rhs.value_ == nil ? nil : [rhs.value_ retain])
+        value_(rhs.value_ == nil ? nil : (Type_) CFRetain((CFTypeRef) rhs.value_))
     {
     }
 
@@ -260,7 +264,7 @@ class _H {
             value_ = value;
             Retain_();
             if (old != nil)
-                [old release];
+                CFRelease((CFTypeRef) old);
         } return *this;
     }
 };
@@ -278,7 +282,7 @@ class _H {
     &$ ## name, &_ ## name
 
 #define MSInitialize \
-    __attribute__((constructor)) static void _MSInitialize(void)
+    __attribute__((__constructor__)) static void _MSInitialize(void)
 
 #define Foundation_f "/System/Library/Frameworks/Foundation.framework/Foundation"
 #define UIKit_f "/System/Library/Frameworks/UIKit.framework/UIKit"
