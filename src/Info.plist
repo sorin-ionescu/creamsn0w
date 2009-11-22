@@ -8,7 +8,7 @@
 	<key>Identifier</key>
 	<string>com.spookyet.creamsn0w</string>
 	<key>Description</key>
-	<string>iPhone 3G/3GS custom firmware unlock with embedded ultrasn0w.</string>
+	<string>iPhone 3G/3GS custom firmware unlock with embedded blacksn0w.</string>
 	<key>SupportedFirmware</key>
 	<array>
 		<string>iPhone1,1_3.0_7A341</string>
@@ -222,7 +222,7 @@
 			<key>Action</key>
 			<string>SetOwner</string>
 			<key>File</key>
-			<string>usr/libexec/ultrasn0w.dylib</string>
+			<string>usr/lib/blacksn0w.dylib</string>
 			<key>Owner</key>
 			<string>root:wheel</string>
 		</dict>
@@ -230,7 +230,7 @@
 			<key>Action</key>
 			<string>SetPermission</string>
 			<key>File</key>
-			<string>usr/libexec/ultrasn0w.dylib</string>
+			<string>usr/lib/blacksn0w.dylib</string>
 			<key>Permission</key>
 			<string>755</string>
 		</dict>
