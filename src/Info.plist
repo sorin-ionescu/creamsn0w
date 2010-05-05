@@ -23,6 +23,9 @@
 		<string>iPhone1,1_3.1.2_7D11</string>
 		<string>iPhone1,2_3.1.2_7D11</string>
 		<string>iPhone2,1_3.1.2_7D11</string>
+		<string>iPhone1,1_3.1.3_7E18</string>
+		<string>iPhone1,2_3.1.3_7E18</string>
+		<string>iPhone2,1_3.1.3_7E18</string>
 	</array>
 	<key>Commands</key>
 	<array>
@@ -38,7 +41,7 @@
 			<key>Action</key>
 			<string>SetPermission</string>
 			<key>File</key>
-			<string>System/Library/LaunchDaemons/com.apple.CommCenter.plist</string>
+		    <string>System/Library/LaunchDaemons/com.apple.CommCenter.plist</string>
 			<key>Permission</key>
 			<string>644</string>
 		</dict>
