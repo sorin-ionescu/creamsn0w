@@ -11,18 +11,6 @@
 	<string>iPhone 3G/3GS custom firmware unlock with embedded blacksn0w.</string>
 	<key>SupportedFirmware</key>
 	<array>
-		<string>iPhone1,1_3.0_7A341</string>
-		<string>iPhone1,2_3.0_7A341</string>
-		<string>iPhone2,1_3.0_7A341</string>
-		<string>iPhone1,1_3.0.1_7A400</string>
-		<string>iPhone1,2_3.0.1_7A400</string>
-		<string>iPhone2,1_3.0.1_7A400</string>
-		<string>iPhone1,1_3.1_7C144</string>
-		<string>iPhone1,2_3.1_7C144</string>
-		<string>iPhone2,1_3.1_7C144</string>
-		<string>iPhone1,1_3.1.2_7D11</string>
-		<string>iPhone1,2_3.1.2_7D11</string>
-		<string>iPhone2,1_3.1.2_7D11</string>
 		<string>iPhone1,1_3.1.3_7E18</string>
 		<string>iPhone1,2_3.1.3_7E18</string>
 		<string>iPhone2,1_3.1.3_7E18</string>

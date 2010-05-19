@@ -8,11 +8,11 @@
 #   DESCRIPTION:  Makes the creamsn0w package.
 #
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.3
-#       CREATED:  2009-11-09 16:11:04-05:00
+#       VERSION:  1.0.4
+#       CREATED:  2010-05-05 14:30:05-04:00
 #===============================================================================
 cd $( dirname $0 ); cd ..
-VERSION=`git tag | sort -V | tail -n 1`
+VERSION=`hg tags | cut -d' ' -f1 | grep -P '(\d\.)+' | head -n 1`
 BUNDLE_NAME='creamsn0w'
 BUNDLE="${BUNDLE_NAME}.bundle"
 PACKAGE_NAME="${BUNDLE_NAME}_${VERSION}"
