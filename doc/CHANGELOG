@@ -4,6 +4,13 @@ Changelog
 Read this file to see what is new in each version.
 
 --------------------------------------------------------------
+2010-08-10 v1.0.14
+--------------------------------------------------------------
+* Added support for firmware 4.0.1.
+* Upgraded ultrasn0w to version 1.0-1.
+* Upgraded MobileSubstrate to version 0.9.3228-1.
+
+--------------------------------------------------------------
 2010-06-25 v1.0.13
 --------------------------------------------------------------
 * Added support for firmware 4.0.

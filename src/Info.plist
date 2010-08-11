@@ -14,14 +14,33 @@
 		<string>iPhone1,2_4.0_8A293</string>
 		<string>iPhone2,1_4.0_8A293</string>
 		<string>iPhone3,1_4.0_8A293</string>
+		<string>iPhone1,2_4.0.1_8A306</string>
+		<string>iPhone2,1_4.0.1_8A306</string>
+		<string>iPhone3,1_4.0.1_8A306</string>
 	</array>
+	<key>FilesystemPatches</key>
+	<dict>
+		<key>Enable Unlock</key>
+		<array>
+			<dict>
+				<key>Action</key>
+				<string>Patch</string>
+				<key>File</key>
+				<string>System/Library/LaunchDaemons/com.apple.CommCenter.plist</string>
+				<key>Name</key>
+				<string>com.apple.CommCenter.plist Patch</string>
+				<key>Patch</key>
+				<string>patches/com.apple.CommCenter.plist.patch</string>
+			</dict>
+		</array>
+	</dict>
 	<key>Commands</key>
 	<array>
 		<dict>
 			<key>Action</key>
 			<string>SetOwner</string>
 			<key>File</key>
-			<string>System/Library/LaunchDaemons/com.apple.CommCenter.plist</string>
+			<string>Library/MobileSubstrate</string>
 			<key>Owner</key>
 			<string>root:wheel</string>
 		</dict>
@@ -29,9 +48,121 @@
 			<key>Action</key>
 			<string>SetPermission</string>
 			<key>File</key>
-			<string>System/Library/LaunchDaemons/com.apple.CommCenter.plist</string>
+			<string>Library/MobileSubstrate</string>
+			<key>Permission</key>
+			<string>755</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/DynamicLibraries</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/DynamicLibraries</string>
+			<key>Permission</key>
+			<string>755</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/DynamicLibraries/ultrasn0w.dylib</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/DynamicLibraries/ultrasn0w.dylib</string>
+			<key>Permission</key>
+			<string>755</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/DynamicLibraries/ultrasn0w.plist</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/DynamicLibraries/ultrasn0w.plist</string>
 			<key>Permission</key>
 			<string>644</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobileLoader.dylib</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobileLoader.dylib</string>
+			<key>Permission</key>
+			<string>755</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobilePaper.png</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobilePaper.png</string>
+			<key>Permission</key>
+			<string>755</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobileSafety.dylib</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobileSafety.dylib</string>
+			<key>Permission</key>
+			<string>755</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobileSubstrate.dylib</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>Library/MobileSubstrate/MobileSubstrate.dylib</string>
+			<key>Permission</key>
+			<string>755</string>
 		</dict>
 		<dict>
 			<key>Action</key>
@@ -69,7 +200,7 @@
 			<key>Action</key>
 			<string>SetOwner</string>
 			<key>File</key>
-			<string>usr/libexec/ultrasn0w.dylib</string>
+			<string>usr/share/ultrasn0w</string>
 			<key>Owner</key>
 			<string>root:wheel</string>
 		</dict>
@@ -77,10 +208,32 @@
 			<key>Action</key>
 			<string>SetPermission</string>
 			<key>File</key>
-			<string>usr/libexec/ultrasn0w.dylib</string>
+			<string>usr/share/ultrasn0w</string>
 			<key>Permission</key>
 			<string>755</string>
 		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetOwner</string>
+			<key>File</key>
+			<string>usr/share/ultrasn0w/ultrasn0w-xgold608.dylib</string>
+			<key>Owner</key>
+			<string>root:wheel</string>
+		</dict>
+		<dict>
+			<key>Action</key>
+			<string>SetPermission</string>
+			<key>File</key>
+			<string>usr/share/ultrasn0w/ultrasn0w-xgold608.dylib</string>
+			<key>Permission</key>
+			<string>755</string>
+		</dict>
+		<dict>
+	        <key>Action</key>
+	        <string>RunScript</string>
+	        <key>File</key>
+	        <string>patches/CommCenter.patch.sh</string>
+	    </dict>
 	</array>
 </dict>
 </plist>

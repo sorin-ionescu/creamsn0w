@@ -1,17 +1,17 @@
 #!/bin/bash
 #===============================================================================
 #
-#          FILE:  make-package
+#          FILE:  build
 #
-#         USAGE:  ./make-package
+#         USAGE:  ./build
 #
 #   DESCRIPTION:  Makes the creamsn0w package.
 #
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.4
-#       CREATED:  2010-05-05 14:30:05-04:00
+#       VERSION:  1.0.6
+#       CREATED:  2010-08-10 23:18:05-04:00
 #===============================================================================
-cd $( dirname $0 ); cd ..
+cd $( dirname $0 )
 VERSION=`git tag | sort -n -k3 -t. | tail -n 1`
 BUNDLE_NAME='creamsn0w'
 BUNDLE="${BUNDLE_NAME}.bundle"
@@ -22,6 +22,7 @@ SRC="$DIR_ROOT/src"
 DOC="$DIR_ROOT/doc"
 PLISTBUDDY="$DIR_ROOT/src/bin/PlistBuddy"
 
+mkdir -p build
 cd build
 
 # Start clean.
@@ -31,6 +32,7 @@ mkdir -p tmp/addons
 
 cp $SRC/Info.plist tmp/$BUNDLE/
 cp -R $SRC/files  tmp/$BUNDLE/
+cp -R $SRC/patches  tmp/$BUNDLE/
 cp $SRC/scripts/* tmp
 cp $DOC/* tmp
 cp -R $SRC/bin tmp/
