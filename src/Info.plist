@@ -227,6 +227,22 @@
 		</dict>
         <dict>
             <key>Action</key>
+            <string>SetOwner</string>
+            <key>File</key>
+            <string>private/etc/fstab</string>
+            <key>Owner</key>
+            <string>root:wheel</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>SetPermission</string>
+            <key>File</key>
+            <string>private/etc/fstab</string>
+            <key>Permission</key>
+            <string>644</string>
+        </dict>
+        <dict>
+            <key>Action</key>
             <string>Patch</string>
             <key>File</key>
             <string>System/Library/LaunchDaemon/com.apple.CommCenter.plist</string>
