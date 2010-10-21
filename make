@@ -39,7 +39,7 @@ cp -R $SRC/bin tmp/
 
 cd tmp
 find . -type f -name '.DS_Store' -delete;
-$PLISTBUDDY -c "Add :GetInfoString string '${VERSION}, Copyright 2009 Sorin Ionescu (SpookyET).'" $BUNDLE/Info.plist
+$PLISTBUDDY -c "Add :GetInfoString string '${VERSION}, Copyright 2010 Sorin Ionescu.'" $BUNDLE/Info.plist
 $PLISTBUDDY -c "Add :ShortVersionString string ${VERSION}" $BUNDLE/Info.plist
 zip -qq -r -y $BUNDLE.zip $BUNDLE
 rm -rf $BUNDLE

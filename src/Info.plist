@@ -11,12 +11,21 @@
 	<string>iPhone 3G/3GS/4 custom firmware unlock with embedded ultrasn0w.</string>
 	<key>SupportedFirmware</key>
 	<array>
+		<string>iPhone1,1_3.1.2_7D11</string>
+		<string>iPhone1,2_3.1.2_7D11</string>
+		<string>iPhone2,1_3.1.2_7D11</string>
+		<string>iPhone1,1_3.1.3_7E18</string>
+		<string>iPhone1,2_3.1.3_7E18</string>
+		<string>iPhone2,1_3.1.3_7E18</string>
 		<string>iPhone1,2_4.0_8A293</string>
 		<string>iPhone2,1_4.0_8A293</string>
 		<string>iPhone3,1_4.0_8A293</string>
 		<string>iPhone1,2_4.0.1_8A306</string>
 		<string>iPhone2,1_4.0.1_8A306</string>
 		<string>iPhone3,1_4.0.1_8A306</string>
+        <string>iPhone1,2_4.1_8B117</string>
+		<string>iPhone2,1_4.1_8B117</string>
+		<string>iPhone3,1_4.1_8B117</string>
 	</array>
 	<key>FilesystemPatches</key>
 	<dict>
