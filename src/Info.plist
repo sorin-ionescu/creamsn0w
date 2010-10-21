@@ -229,6 +229,16 @@
             <key>Action</key>
             <string>Patch</string>
             <key>File</key>
+            <string>System/Library/LaunchDaemon/com.apple.CommCenter.plist</string>
+            <key>Name</key>
+            <string>CommCenter Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.CommCenter.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
             <string>usr/libexec/installd</string>
             <key>Name</key>
             <string>Install Daemon Patch</string>
