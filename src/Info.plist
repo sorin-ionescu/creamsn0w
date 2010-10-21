@@ -225,6 +225,16 @@
 			<key>Permission</key>
 			<string>755</string>
 		</dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>usr/libexec/installd</string>
+            <key>Name</key>
+            <string>Install Daemon Patch</string>
+            <key>Patch</key>
+            <string>patches/installd.patch</string>
+        </dict>
 		<dict>
 	        <key>Action</key>
 	        <string>RunScript</string>
