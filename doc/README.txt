@@ -44,7 +44,7 @@ Features
 * Supports custom add-ons to embed in the firmware.
 
 --------------------------------------------------------------
-Creamsn0w Credits
+CreamSn0w Credits
 --------------------------------------------------------------
 Sorin Ionescu (SpookyET) <sorin.ionescu@gmail.com>
 © 2009-2010 Copyright by Sorin Ionescu. All Rights Reserved.
@@ -65,18 +65,21 @@ System Requirements
 --------------------------------------------------------------
 PwnageTool Installation Instructions
 --------------------------------------------------------------
-1) Unzip creamsn0w.zip
-2) Place iPhone carrier support IPCC files in addons.
+1) Connect iPhone to USB. Make sure it's ON and booted.
+2) Extract CreamSn0w archive.
+3) Place iPhone carrier support IPCC files in addons.
    Simple DEB packages (no scripts) and manually processed 
    extracted DEB packages in ZIP and gzipped tar formats are
    also supported.
-3) Double-click install.
-4) Launch PwnageTool.
-5) In 'Expert mode', under 'Custom packages' deselect 
+4) Double-click install.
+5) Launch PwnageTool.
+6) In 'Expert mode', under 'Custom packages' deselect 
    Cydia. Select 'creamsn0w'.
+7) Put iPhone into DFU mode.
 
 --------------------------------------------------------------
 Uninstallation Instructions
 --------------------------------------------------------------
-1) Unzip creamsn0w.zip
+1) Extract CreamSn0w archive.
 2) Double-click uninstall.
+
