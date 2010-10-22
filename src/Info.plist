@@ -328,7 +328,7 @@
 	        <key>Action</key>
 	        <string>RunScript</string>
 	        <key>File</key>
-	        <string>patches/CommCenter.patch.sh</string>
+	        <string>scripts/CommCenter.patch.sh</string>
 	    </dict>
 	</array>
 </dict>
