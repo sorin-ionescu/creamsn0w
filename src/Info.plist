@@ -15,105 +15,6 @@
 		<string>iPhone2,1_4.1_8B117</string>
 		<string>iPhone3,1_4.1_8B117</string>
 	</array>
-	<key>FilesystemPatches</key>
-	<dict>
-		<key>Mobile Substrate</key>
-		<array>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.AOSNotification.plist</string>
-                <key>Name</key>
-                <string>AOSNotification Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.AOSNotification.plist.patch</string>
-            </dict>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.BTServer.plist</string>
-                <key>Name</key>
-                <string>BTServer Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.BTServer.plist.patch</string>
-            </dict>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.CommCenter.plist</string>
-                <key>Name</key>
-                <string>CommCenter Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.CommCenter.plist.patch</string>
-            </dict>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.iapd.plist</string>
-                <key>Name</key>
-                <string>Accessory Daemon Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.iapd.plist.patch</string>
-            </dict>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.itunesstored.plist</string>
-                <key>Name</key>
-                <string>iTunes Store Daemon Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.itunesstored.plist.patch</string>
-            </dict>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.lsd.plist</string>
-                <key>Name</key>
-                <string>LS Daemon Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.lsd.plist.patch</string>
-            </dict>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.mediaserverd.plist</string>
-                <key>Name</key>
-                <string>Media Server Daemon Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.mediaserverd.plist.patch</string>
-            </dict>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>System/Library/LaunchDaemon/com.apple.SpringBoard.plist</string>
-                <key>Name</key>
-                <string>SpringBoard Launch Preferences Patch</string>
-                <key>Patch</key>
-                <string>patches/com.apple.SpringBoard.plist.patch</string>
-            </dict>
-        </array>
-        <key>Unsigned Applications</key>
-        <array>
-            <dict>
-                <key>Action</key>
-                <string>Patch</string>
-                <key>File</key>
-                <string>usr/libexec/installd</string>
-                <key>Name</key>
-                <string>Install Daemon Patch</string>
-                <key>Patch</key>
-                <string>patches/installd.patch</string>
-            </dict>
-        </array>
-	</dict>
 	<key>Commands</key>
 	<array>
 		<dict>
@@ -324,6 +225,96 @@
 			<key>Permission</key>
 			<string>755</string>
 		</dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.AOSNotification.plist</string>
+            <key>Name</key>
+            <string>AOSNotification Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.AOSNotification.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.BTServer.plist</string>
+            <key>Name</key>
+            <string>BTServer Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.BTServer.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.CommCenter.plist</string>
+            <key>Name</key>
+            <string>CommCenter Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.CommCenter.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.iapd.plist</string>
+            <key>Name</key>
+            <string>Accessory Daemon Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.iapd.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.itunesstored.plist</string>
+            <key>Name</key>
+            <string>iTunes Store Daemon Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.itunesstored.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.lsd.plist</string>
+            <key>Name</key>
+            <string>LS Daemon Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.lsd.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.mediaserverd.plist</string>
+            <key>Name</key>
+            <string>Media Server Daemon Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.mediaserverd.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/LaunchDaemons/com.apple.SpringBoard.plist</string>
+            <key>Name</key>
+            <string>SpringBoard Launch Preferences Patch</string>
+            <key>Patch</key>
+            <string>patches/com.apple.SpringBoard.plist.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>usr/libexec/installd</string>
+            <key>Name</key>
+            <string>Install Daemon Patch</string>
+            <key>Patch</key>
+            <string>patches/installd.patch</string>
+        </dict>
  		<dict>
 	        <key>Action</key>
 	        <string>RunScript</string>
