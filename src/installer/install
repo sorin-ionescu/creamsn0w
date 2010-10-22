@@ -1,32 +1,25 @@
 #!/bin/bash
 #===============================================================================
-#
-#          FILE:  install
-#
-#         USAGE:  ./install
-#
 #   DESCRIPTION:  Installs the creamsn0w bundle.
-#
 #        AUTHOR:  Sorin Ionescu (SookyET) <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.4
-#       CREATED:  2009-10-21 17:20:25-04:00
+#       VERSION:  1.0.5
 #===============================================================================
-BUNDLE_NAME="creamsn0w"
-BUNDLE="${BUNDLE_NAME}.bundle"
-INSTALL_PATH="$( echo ~ )/Library/Application Support/PwnageTool/CustomPackages"
-BUNDLE_ROOT=$BUNDLE/files
-CARRIER_SUPPORT_PATH="${BUNDLE_ROOT}/System/Library/Carrier Bundles"
+bundle_name="creamsn0w"
+bundle="${bundle_name}.bundle"
+install_path="$( echo ~ )/Library/Application Support/PwnageTool/CustomPackages"
+bundle_root=$bundle/files
+carrier_support_path="${bundle_root}/System/Library/Carrier Bundles"
 
 temp_ifs=$IFS
 IFS=$'\n'
 cd $( dirname $0 )
-DIR_ROOT=$( pwd )
-AR="$DIR_ROOT/bin/ar"
-PLISTBUDDY="$DIR_ROOT/bin/PlistBuddy"
+dir_root=$( pwd )
 
-unzip -qq $BUNDLE
+export PATH=$dir_root/bin:/usr/libexec:$PATH
 
-echo Building ${BUNDLE_NAME}.
+unzip -qq $bundle
+
+echo Building ${bundle_name}.
 
 for package in $( find addons -type f )
 do
@@ -36,8 +29,8 @@ do
 			dir_name=$( echo $package_name | sed -e 's/\(.*\)\..*$/\1/g' )
 			echo "  Embedding ${package_name}"
 			unzip -qq ${package} -d $dir_name
-			mkdir -p $CARRIER_SUPPORT_PATH
-			ditto $dir_name/Payload/ $CARRIER_SUPPORT_PATH/
+			mkdir -p $carrier_support_path
+			ditto $dir_name/Payload/ $carrier_support_path/
 			;;
 		*.deb)
 			package_name=$( echo $package | sed -e 's/addons\///g' )
@@ -45,10 +38,10 @@ do
 			echo "  Embedding ${package_name}"
 			mkdir -p $dir_name/Payload
 			cd $dir_name
-			$AR x ../$package
+			ar x ../$package
 			tar xzf data.tar.gz -C Payload
 			cd ..
-			ditto $dir_name/Payload $BUNDLE_ROOT/
+			ditto $dir_name/Payload $bundle_root/
 			;;
 		*.zip)
 			package_name=$( echo $package | sed -e 's/addons\///g' )
@@ -56,9 +49,9 @@ do
 			echo "  Embedding ${package_name}"
 			unzip -qq $package -d $dir_name
 			[[ -e $dir_name/Info.plist ]] && \
-				$PLISTBUDDY -c "Merge ${dir_name}/Info.plist :Commands:" $BUNDLE/Info.plist && \
-				 rm -rf $dir_name/Info.plist 
-			ditto $dir_name/ $BUNDLE_ROOT/
+				PlistBuddy -c "Merge ${dir_name}/Info.plist :Commands:" $bundle/Info.plist && \
+			    rm -rf $dir_name/Info.plist 
+			ditto $dir_name/ $bundle_root/
 			;;
 		*.tar.gz|*.tgz)
 			package_name=$( echo $package | sed -e 's/addons\///g' )
@@ -67,27 +60,27 @@ do
 			mkdir $dir_name
 			tar xzf $package -C $dir_name
 			[[ -e $dir_name/Info.plist ]] && \
-				$PLISTBUDDY -c "Merge ${dir_name}/Info.plist :Commands:" $BUNDLE/Info.plist && \
+				PlistBuddy -c "Merge ${dir_name}/Info.plist :Commands:" $bundle/Info.plist && \
 				rm -rf $dir_name/Info.plist
-			ditto $dir_name/ $BUNDLE_ROOT/
+			ditto $dir_name/ $bundle_root/
 			;;
 	esac
 	rm -rf $dir_name
 done
 
 # Update bundle size.
-cd $BUNDLE
+cd $bundle
 size=$( echo "$( du -kcs | tail -n 1 | awk '{ print $1 }' ) * 1024" | bc -l )
-$PLISTBUDDY -c "Add :Size integer ${size}" Info.plist
+PlistBuddy -c "Add :Size integer ${size}" Info.plist
 cd ..
 
 # Remove those pesky .DS_Store files and __MACOSX directories.
 find . -type f -name '.DS_Store' -delete
 find . -type d -name '__MACOSX' -exec rm -rf "{}" \; &> /dev/null
 
-echo "Installing $BUNDLE_NAME."
-mkdir -p $INSTALL_PATH
-rm -rf ${INSTALL_PATH}/${BUNDLE}
-mv $BUNDLE $INSTALL_PATH/
+echo "Installing $bundle_name."
+mkdir -p $install_path
+rm -rf ${install_path}/${bundle}
+mv $bundle $install_path/
 echo Done.
 IFS=$temp_ifs
