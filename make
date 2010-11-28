@@ -2,11 +2,11 @@
 #===============================================================================
 #   DESCRIPTION:  Makes the creamsn0w package.
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.7
+#       VERSION:  1.0.8
 #===============================================================================
 export PATH=/usr/libexec/:$PATH
 cd $( dirname $0 )
-version=`git tag | sort -n -k3 -t. | tail -n 1`
+version=`git tag | sort -t. -k1,2 -n -k3 | tail -n 1`
 bundle_name='creamsn0w'
 bundle="${bundle_name}.bundle"
 package_name="${bundle_name}_${version}"
