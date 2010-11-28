@@ -68,15 +68,15 @@ do
 	rm -rf $dir_name
 done
 
+# Remove those pesky .DS_Store files and __MACOSX directories.
+find . -type f -name '.DS_Store' -delete
+find . -type d -name '__MACOSX' -exec rm -rf "{}" \; &> /dev/null
+
 # Update bundle size.
 cd $bundle
 size=$( echo "$( du -kcs | tail -n 1 | awk '{ print $1 }' ) * 1024" | bc -l )
 PlistBuddy -c "Add :Size integer ${size}" Info.plist
 cd ..
-
-# Remove those pesky .DS_Store files and __MACOSX directories.
-find . -type f -name '.DS_Store' -delete
-find . -type d -name '__MACOSX' -exec rm -rf "{}" \; &> /dev/null
 
 echo "Installing $bundle_name."
 mkdir -p $install_path
@@ -84,3 +84,4 @@ rm -rf ${install_path}/${bundle}
 mv $bundle $install_path/
 echo Done.
 IFS=$temp_ifs
+
