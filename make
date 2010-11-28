@@ -2,14 +2,15 @@
 #===============================================================================
 #   DESCRIPTION:  Makes the creamsn0w package.
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.8
+#       VERSION:  1.0.9
 #===============================================================================
 export PATH=/usr/libexec/:$PATH
 cd $( dirname $0 )
 version=`git tag | sort -t. -k1,2 -n -k3 | tail -n 1`
+ios_version='ios4.1'
 bundle_name='creamsn0w'
 bundle="${bundle_name}.bundle"
-package_name="${bundle_name}_${version}"
+package_name="${bundle_name}_${ios_version}_${version}"
 package="${package_name}.zip"
 dir_root=$( pwd )
 src="$dir_root/src"
