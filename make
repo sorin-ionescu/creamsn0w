@@ -2,7 +2,7 @@
 #===============================================================================
 #   DESCRIPTION:  Makes the creamsn0w package.
 #        AUTHOR:  Sorin Ionescu <sorin.ionescu@gmail.com>
-#       VERSION:  1.0.9
+#       VERSION:  1.0.10
 #===============================================================================
 export PATH=/usr/libexec/:$PATH
 cd $( dirname $0 )
@@ -14,7 +14,6 @@ package_name="${bundle_name}_${ios_version}_${version}"
 package="${package_name}.zip"
 dir_root=$( pwd )
 src="$dir_root/src"
-doc="$dir_root/doc"
 
 rm -rf build
 mkdir -p build
@@ -31,7 +30,7 @@ cp -R $src/files tmp/$bundle/
 cp -R $src/patches tmp/$bundle/
 cp -R $src/scripts tmp/$bundle/
 cp -R $src/installer/* tmp
-cp -R $doc/* tmp
+cp -R $dir_root/*.txt tmp
 
 cd tmp
 find . -type f -name '.DS_Store' -delete;
