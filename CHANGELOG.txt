@@ -4,6 +4,15 @@ Changelog
 Read this file to see what is new in each version.
 
 --------------------------------------------------------------
+2010-11-xx v1.1.2
+--------------------------------------------------------------
+* Added support for iOS 4.2.1 for iPhone 3G ONLY.
+* Upgraded ultrasn0w to version 1.2 which unlocks:
+  - iPhone 3G/3GS basebands 04.26.08, 05.11.07, 05.12.01,
+    05.13.04, 06.15.00.
+  - iPhone 4 baseband 01.59.00.
+
+--------------------------------------------------------------
 2010-11-28 v1.1.1
 --------------------------------------------------------------
 * Fixed non-detection by PwnageTool for iOS 4.1.
