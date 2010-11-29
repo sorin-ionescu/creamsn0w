@@ -1,9 +1,9 @@
 #!/bin/bash
 dir_root="$( dirname "${0/scripts/}" )"
 export PATH="$dir_root/bin:$PATH"
-patch_name='CommCenter'
+patch_name='installd'
 mount_volume="$1"
-file_to_patch="${mount_volume}/System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter"
+file_to_patch="${mount_volume}/usr/libexec/installd"
 device_info=$( gtimeout -k 1s 10s producttype | grep 'iPhone[0-9],[0-9]:[0-9]\(\.[0-9]\)\{1,2\}' | tr -d '\r' )
 device_type=$( echo $device_info | cut -d ':' -f 1 )
 device_os_version=$( echo $device_info | cut -d ':' -f 2 )
