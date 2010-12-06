@@ -430,15 +430,19 @@
         </dict>
         <dict>
             <key>Action</key>
-            <string>RunScript</string>
+            <string>Patch</string>
             <key>File</key>
-            <string>scripts/CommCenter.patch.sh</string>
+            <string>usr/libexec/installd</string>
+            <key>Name</key>
+            <string>Install Daemon Patch</string>
+            <key>Patch</key>
+            <string>patches/installd.patch</string>
         </dict>
         <dict>
             <key>Action</key>
             <string>RunScript</string>
             <key>File</key>
-            <string>scripts/installd.patch.sh</string>
+            <string>scripts/CommCenter.patch.sh</string>
         </dict>
     </array>
 </dict>
