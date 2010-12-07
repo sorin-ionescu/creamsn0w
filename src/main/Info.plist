@@ -434,6 +434,22 @@
             <key>Patch</key>
             <string>patches/installd.patch</string>
         </dict>
+        <dict>
+            <key>Action</key>
+            <string>SetOwner</string>
+            <key>File</key>
+            <string>usr/libexec/installd</string>
+            <key>Owner</key>
+            <string>root:wheel</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>SetPermission</string>
+            <key>File</key>
+            <string>usr/libexec/installd</string>
+            <key>Permission</key>
+            <string>755</string>
+        </dict>
     </array>
 </dict>
 </plist>
