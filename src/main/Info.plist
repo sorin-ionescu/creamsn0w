@@ -6,15 +6,11 @@
     <key>Name</key>
     <string>creamsn0w</string>
     <key>Identifier</key>
-    <string>com.spookyet.creamsn0w</string>
+    <string>com.sorin.creamsn0w</string>
     <key>Description</key>
     <string>iPhone 3G/3GS/4 custom firmware unlock with embedded ultrasn0w.</string>
     <key>SupportedFirmware</key>
     <array>
-        <string>iPhone1,2_4.1_8B117</string>
-        <string>iPhone2,1_4.1_8B117</string>
-        <string>iPhone3,1_4,1_8B117</string>
-        <string>iPhone1,2_4.2.1_8C148</string>
     </array>
     <key>Commands</key>
     <array>
@@ -437,12 +433,6 @@
             <string>Install Daemon Patch</string>
             <key>Patch</key>
             <string>patches/installd.patch</string>
-        </dict>
-        <dict>
-            <key>Action</key>
-            <string>RunScript</string>
-            <key>File</key>
-            <string>scripts/CommCenter.patch.sh</string>
         </dict>
     </array>
 </dict>
