@@ -46,8 +46,7 @@ Features
 --------------------------------------------------------------
 CreamSn0w Credits
 --------------------------------------------------------------
-Sorin Ionescu (SpookyET) <sorin.ionescu@gmail.com>
-© 2009-2010 Copyright by Sorin Ionescu. All Rights Reserved.
+Sorin Ionescu <sorin.ionescu@gmail.com>
 
 --------------------------------------------------------------
 Additional Credits

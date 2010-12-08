@@ -7,7 +7,7 @@
 export PATH=/usr/libexec/:$PATH
 cd "$( dirname $0 )"
 version=`git tag | sort -t. -k1,2 -n -k3 | tail -n 1`
-ios_version='ios4.1'
+ios_version='ios4.2'
 bundle_name='creamsn0w'
 bundle_suffix='bundle'
 package_name="${bundle_name}_${ios_version}_${version}"
