@@ -440,7 +440,32 @@
             <key>Permission</key>
             <string>644</string>
         </dict>
-
+        <dict>
+            <key>Action</key>
+            <string>Patch</string>
+            <key>File</key>
+            <string>System/Library/Lockdown/Services.plist</string>
+            <key>Name</key>
+            <string>Disable Apple File Connection v2</string>
+            <key>Patch</key>
+            <string>patches/Services.patch</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>SetOwner</string>
+            <key>File</key>
+            <string>System/Library/Lockdown/Services.plist</string>
+            <key>Owner</key>
+            <string>root:wheel</string>
+        </dict>
+        <dict>
+            <key>Action</key>
+            <string>SetPermission</string>
+            <key>File</key>
+            <string>System/Library/Lockdown/Services.plist</string>
+            <key>Permission</key>
+            <string>644</string>
+        </dict>
         <dict>
             <key>Action</key>
             <string>Patch</string>
