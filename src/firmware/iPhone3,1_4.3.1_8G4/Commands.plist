@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+        <key>Action</key>
+        <string>Patch</string>
+        <key>File</key>
+        <string>System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter</string>
+        <key>Name</key>
+        <string>CommCenter Patch</string>
+        <key>Patch</key>
+        <string>patches/CommCenter.patch</string>
+    </dict>
+    <dict>
+        <key>Action</key>
+        <string>SetOwner</string>
+        <key>File</key>
+        <string>System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter</string>
+        <key>Owner</key>
+        <string>root:wheel</string>
+    </dict>
+    <dict>
+        <key>Action</key>
+        <string>SetPermission</string>
+        <key>File</key>
+        <string>System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter</string>
+        <key>Permission</key>
+        <string>755</string>
+    </dict>
+</array>
+</plist>
